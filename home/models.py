@@ -36,3 +36,43 @@ class Accounts(models.Model):
     accountName = models.BigIntegerField()
     openDate = models.DateField()
     closeDate = models.DateField()
+
+
+class Drip(models.Model):
+    "Generated Model"
+    holdingId = models.BigIntegerField()
+    dripStart = models.DateField()
+    dripEnd = models.DateField()
+
+
+class HoldingValue(models.Model):
+    "Generated Model"
+    holdingId = models.BigIntegerField()
+    holdId = models.BigIntegerField(
+        null=True,
+        blank=True,
+    )
+    newShares = models.DecimalField(
+        max_digits=30,
+        decimal_places=10,
+        null=True,
+        blank=True,
+    )
+
+
+class Dividends(models.Model):
+    "Generated Model"
+    symbol = models.CharField(
+        max_length=256,
+    )
+    exDate = models.DateField()
+    payDate = models.DateField()
+    declareDate = models.DateField()
+    value = models.DecimalField(
+        max_digits=30,
+        decimal_places=10,
+    )
+    shares = models.DecimalField(
+        max_digits=30,
+        decimal_places=10,
+    )

@@ -1,6 +1,12 @@
 from rest_framework import viewsets
-from home.models import Accounts, Holdings
-from .serializers import AccountsSerializer, HoldingsSerializer
+from home.models import Accounts, Dividends, Drip, Holdings, HoldingValue
+from .serializers import (
+    AccountsSerializer,
+    DividendsSerializer,
+    DripSerializer,
+    HoldingsSerializer,
+    HoldingValueSerializer,
+)
 from rest_framework import authentication
 from rest_framework.authtoken.serializers import AuthTokenSerializer
 from rest_framework.viewsets import ModelViewSet, ViewSet
@@ -50,3 +56,30 @@ class AccountsViewSet(viewsets.ModelViewSet):
         authentication.TokenAuthentication,
     )
     queryset = Accounts.objects.all()
+
+
+class DripViewSet(viewsets.ModelViewSet):
+    serializer_class = DripSerializer
+    authentication_classes = (
+        authentication.SessionAuthentication,
+        authentication.TokenAuthentication,
+    )
+    queryset = Drip.objects.all()
+
+
+class HoldingValueViewSet(viewsets.ModelViewSet):
+    serializer_class = HoldingValueSerializer
+    authentication_classes = (
+        authentication.SessionAuthentication,
+        authentication.TokenAuthentication,
+    )
+    queryset = HoldingValue.objects.all()
+
+
+class DividendsViewSet(viewsets.ModelViewSet):
+    serializer_class = DividendsSerializer
+    authentication_classes = (
+        authentication.SessionAuthentication,
+        authentication.TokenAuthentication,
+    )
+    queryset = Dividends.objects.all()
