@@ -1,6 +1,6 @@
 from rest_framework import viewsets
-from home.models import Holdings
-from .serializers import HoldingsSerializer
+from home.models import Accounts, Holdings
+from .serializers import AccountsSerializer, HoldingsSerializer
 from rest_framework import authentication
 from rest_framework.authtoken.serializers import AuthTokenSerializer
 from rest_framework.viewsets import ModelViewSet, ViewSet
@@ -41,3 +41,12 @@ class HoldingsViewSet(viewsets.ModelViewSet):
         authentication.TokenAuthentication,
     )
     queryset = Holdings.objects.all()
+
+
+class AccountsViewSet(viewsets.ModelViewSet):
+    serializer_class = AccountsSerializer
+    authentication_classes = (
+        authentication.SessionAuthentication,
+        authentication.TokenAuthentication,
+    )
+    queryset = Accounts.objects.all()

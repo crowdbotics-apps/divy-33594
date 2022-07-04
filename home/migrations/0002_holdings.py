@@ -8,19 +8,32 @@ class Migration(migrations.Migration):
     initial = True
 
     dependencies = [
-        ('home', '0001_load_initial_data'),
+        ("home", "0001_load_initial_data"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Holdings',
+            name="Holdings",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('symbol', models.CharField(blank=True, max_length=256)),
-                ('purchaseDate', models.DateField(blank=True)),
-                ('uniqueId', models.BigIntegerField(blank=True, null=True)),
-                ('purchasePrice', models.DecimalField(blank=True, decimal_places=10, max_digits=30, null=True)),
-                ('accountId', models.BigIntegerField(blank=True, null=True)),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("symbol", models.CharField(blank=True, max_length=256)),
+                ("purchaseDate", models.DateField(blank=True)),
+                ("uniqueId", models.BigIntegerField(blank=True, null=True)),
+                (
+                    "purchasePrice",
+                    models.DecimalField(
+                        blank=True, decimal_places=10, max_digits=30, null=True
+                    ),
+                ),
+                ("accountId", models.BigIntegerField(blank=True, null=True)),
             ],
         ),
     ]
