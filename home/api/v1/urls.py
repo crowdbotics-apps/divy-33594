@@ -2,6 +2,7 @@ from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 from .viewsets import (
     AccountsViewSet,
+    ClosingValueViewSet,
     DividendsViewSet,
     DripViewSet,
     HoldingsViewSet,
@@ -21,6 +22,7 @@ router.register("accounts", AccountsViewSet)
 router.register("drip", DripViewSet)
 router.register("holdingvalue", HoldingValueViewSet)
 router.register("dividends", DividendsViewSet)
+router.register("closingvalue", ClosingValueViewSet)
 
 urlpatterns = [
     path("", include(router.urls)),

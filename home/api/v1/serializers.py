@@ -1,5 +1,5 @@
 from django.contrib.auth import get_user_model
-from home.models import Accounts, Dividends, Drip, Holdings, HoldingValue
+from home.models import Accounts, ClosingValue, Dividends, Drip, Holdings, HoldingValue
 from django.http import HttpRequest
 from django.utils.translation import ugettext_lazy as _
 from allauth.account import app_settings as allauth_settings
@@ -103,4 +103,10 @@ class HoldingValueSerializer(serializers.ModelSerializer):
 class DividendsSerializer(serializers.ModelSerializer):
     class Meta:
         model = Dividends
+        fields = "__all__"
+
+
+class ClosingValueSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ClosingValue
         fields = "__all__"

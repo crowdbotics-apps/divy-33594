@@ -1,7 +1,8 @@
 from rest_framework import viewsets
-from home.models import Accounts, Dividends, Drip, Holdings, HoldingValue
+from home.models import Accounts, ClosingValue, Dividends, Drip, Holdings, HoldingValue
 from .serializers import (
     AccountsSerializer,
+    ClosingValueSerializer,
     DividendsSerializer,
     DripSerializer,
     HoldingsSerializer,
@@ -83,3 +84,12 @@ class DividendsViewSet(viewsets.ModelViewSet):
         authentication.TokenAuthentication,
     )
     queryset = Dividends.objects.all()
+
+
+class ClosingValueViewSet(viewsets.ModelViewSet):
+    serializer_class = ClosingValueSerializer
+    authentication_classes = (
+        authentication.SessionAuthentication,
+        authentication.TokenAuthentication,
+    )
+    queryset = ClosingValue.objects.all()

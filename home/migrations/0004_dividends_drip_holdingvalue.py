@@ -6,38 +6,67 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('home', '0003_accounts'),
+        ("home", "0003_accounts"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Dividends',
+            name="Dividends",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('symbol', models.CharField(max_length=256)),
-                ('exDate', models.DateField()),
-                ('payDate', models.DateField()),
-                ('declareDate', models.DateField()),
-                ('value', models.DecimalField(decimal_places=10, max_digits=30)),
-                ('shares', models.DecimalField(decimal_places=10, max_digits=30)),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("symbol", models.CharField(max_length=256)),
+                ("exDate", models.DateField()),
+                ("payDate", models.DateField()),
+                ("declareDate", models.DateField()),
+                ("value", models.DecimalField(decimal_places=10, max_digits=30)),
+                ("shares", models.DecimalField(decimal_places=10, max_digits=30)),
             ],
         ),
         migrations.CreateModel(
-            name='Drip',
+            name="Drip",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('holdingId', models.BigIntegerField()),
-                ('dripStart', models.DateField()),
-                ('dripEnd', models.DateField()),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("holdingId", models.BigIntegerField()),
+                ("dripStart", models.DateField()),
+                ("dripEnd", models.DateField()),
             ],
         ),
         migrations.CreateModel(
-            name='HoldingValue',
+            name="HoldingValue",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('holdingId', models.BigIntegerField()),
-                ('holdId', models.BigIntegerField(blank=True, null=True)),
-                ('newShares', models.DecimalField(blank=True, decimal_places=10, max_digits=30, null=True)),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("holdingId", models.BigIntegerField()),
+                ("holdId", models.BigIntegerField(blank=True, null=True)),
+                (
+                    "newShares",
+                    models.DecimalField(
+                        blank=True, decimal_places=10, max_digits=30, null=True
+                    ),
+                ),
             ],
         ),
     ]

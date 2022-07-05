@@ -43,18 +43,22 @@ class Drip(models.Model):
     holdingId = models.BigIntegerField()
     dripStart = models.DateField()
     dripEnd = models.DateField()
+    uniqueId = models.BigIntegerField(
+        null=True,
+        blank=True,
+    )
 
 
 class HoldingValue(models.Model):
     "Generated Model"
     holdingId = models.BigIntegerField()
-    holdId = models.BigIntegerField(
+    newShares = models.DecimalField(
         null=True,
         blank=True,
-    )
-    newShares = models.DecimalField(
         max_digits=30,
         decimal_places=10,
+    )
+    uniqueId = models.BigIntegerField(
         null=True,
         blank=True,
     )
@@ -73,6 +77,21 @@ class Dividends(models.Model):
         decimal_places=10,
     )
     shares = models.DecimalField(
+        max_digits=30,
+        decimal_places=10,
+    )
+    uniqueId = models.BigIntegerField(
+        null=True,
+        blank=True,
+    )
+
+
+class ClosingValue(models.Model):
+    "Generated Model"
+    uniqueId = models.BigIntegerField()
+    date = models.DateField()
+    symbolId = models.BigIntegerField()
+    closePrice = models.DecimalField(
         max_digits=30,
         decimal_places=10,
     )
